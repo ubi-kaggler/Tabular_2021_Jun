@@ -1,3 +1,4 @@
-pandas
-sklearn
-numpy
+pandas==
+sklearn==
+numpy==1.20.3
+matplotlib==

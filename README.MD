@@ -2,4 +2,4 @@
 - Python 3.8.5
 - pandas
 - sklearn
-- numpy
+- numpy 1.20.3
