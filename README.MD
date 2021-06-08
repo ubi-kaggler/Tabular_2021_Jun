@@ -3,3 +3,7 @@
 - pandas
 - sklearn
 - numpy 1.20.3
+
+Run
+`pip install -r requirements.txt`
+for install requirements
