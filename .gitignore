@@ -4,3 +4,10 @@
 */*/*/.DS_Store
 */*/*/*/.DS_Store
 env
+.idea
+__pycache__
+*/__pycache__
+*/*/__pycache__
+*/*/*/__pycache__
+*/*/*/*/__pycache__
+.python-version
