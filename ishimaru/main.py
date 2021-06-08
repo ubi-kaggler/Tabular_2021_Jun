@@ -14,15 +14,15 @@ from sklearn.model_selection import GridSearchCV
 # 学習データ、テストデータの読み込み
 # -----------------------------------
 # 学習データ、テストデータの読み込み
-train = pd.read_csv('./data/train.tsv', sep='\t')
-test = pd.read_csv('./data/test.tsv', sep='\t')
+train = pd.read_csv('../data/train.csv')
+test = pd.read_csv('../data/test.csv')
 
 train = train.drop(columns=['id'])
 # test = test.drop(columns=['id'])
 
 # train = train[train.horsepower != '?']
-train = train.replace('?', np.NaN)
-test = test.replace('?', np.NaN)
+# train = train.replace('?', np.NaN)
+# test = test.replace('?', np.NaN)
 # train = train.dropna()
 
 import missingno as msno
@@ -40,13 +40,14 @@ def kesson_table(df):
 
 print("訓練データの欠損情報")
 kesson = kesson_table(train)
+print(kesson)
 
 # 学習データを特徴量と目的変数に分ける
-train_x = train.drop(['mpg'], axis=1)
-train_y = train['mpg']
+# train_x = train.drop(['mpg'], axis=1)
+# train_y = train['mpg']
 
 # テストデータは特徴量のみなので、そのままでよい
-test_x = test.copy()
+# test_x = test.copy()
 
 # 学習用データと評価用データの分割
 # X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=32)
@@ -54,10 +55,10 @@ test_x = test.copy()
 # -----------------------------------
 # 特徴量作成
 # -----------------------------------
-train_x = train_x.drop(columns=['car name'])
-train_x['horsepower'] = train_x['horsepower'].astype(float)
-test_x = test_x.drop(columns=['id', 'car name'])
-test_x['horsepower'] = test_x['horsepower'].astype(float)
+# train_x = train_x.drop(columns=['car name'])
+# train_x['horsepower'] = train_x['horsepower'].astype(float)
+# test_x = test_x.drop(columns=['id', 'car name'])
+# test_x['horsepower'] = test_x['horsepower'].astype(float)
 
 # dtrain = xgb.DMatrix(train_x, label=train_y)
 # dtest = xgb.DMatrix(test_x.values)
@@ -84,12 +85,13 @@ test_x['horsepower'] = test_x['horsepower'].astype(float)
 # reg_cv.fit(train_x, train_y)
 
 # モデルの作成および学習データを与えての学習
-model = xgb.XGBRegressor()
-model.fit(train_x, train_y)
+# model = xgb.XGBRegressor()
+# model.fit(train_x, train_y)
 
 # テストデータの予測値を確率で出力する
-pred = model.predict(test_x)
+# pred = model.predict(test_x)
+
 # 提出用ファイルの作成
-submission = pd.DataFrame({'id': test['id'], 'mpg': pred})
-submission.to_csv('./submission_automobile.csv', index=False)
-print('csv output')
+# submission = pd.DataFrame({'id': test['id'], 'mpg': pred})
+# submission.to_csv('./submission_automobile.csv', index=False)
+# print('csv output')
