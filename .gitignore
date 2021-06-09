@@ -11,3 +11,8 @@ __pycache__
 */*/*/__pycache__
 */*/*/*/__pycache__
 .python-version
+.ipynb_checkpoint
+*/.ipynb_checkpoint
+*/*/.ipynb_checkpoint
+*/*/*/.ipynb_checkpoint
+*/*/*/*/.ipynb_checkpoint
