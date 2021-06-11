@@ -15,9 +15,9 @@ df_train = pd.read_csv('../data/train.csv')
 df_test = pd.read_csv('../data/test.csv')
 
 #データの確認
-print(df_train.info)
-print(df_train.columns)
-print(df_train["target"].value_counts())
+#print(df_train.info)
+#print(df_train.columns)
+#print(df_train["target"].value_counts())
 
 X = df_train.drop(["target"], axis=1)#説明変数
 y = df_train["target"]#目的変数
@@ -25,9 +25,10 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, stratify=y, test_size=0.3, random_state=0
 )#テストが30% ランダムシード値を0で固定
 
-X_train["zeros_sum"] = X_train.apply(np.sum, axis=1)
-print(X_train)
+X_train["zero_sum"] = (X_train.loc[:,"feature_0":"feature_74"] == 0).sum(axis = 1)
+X_train["sum"] = X_train.loc[:,"feature_0":"feature_74"].sum(axis = 1)
 
+#breakpoint()
 
 
 """
