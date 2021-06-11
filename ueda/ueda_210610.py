@@ -19,12 +19,18 @@ print(df_train.info)
 print(df_train.columns)
 print(df_train["target"].value_counts())
 
-#trainからtrainとtestに分ける
-def split_data(df):
-    train = df.drop["target"]
-    test = df["target"]
-    return train, test
+X = df_train.drop(["target"], axis=1)#説明変数
+y = df_train["target"]#目的変数
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, stratify=y, test_size=0.3, random_state=0
+)#テストが30% ランダムシード値を0で固定
 
+X_train["zeros_sum"] = X_train.apply(np.sum, axis=1)
+print(X_train)
+
+
+
+"""
 #ランダムアンダーサンプリング
 rank_6 = df_train["target"].value_counts()[0]
 rank_8 = df_train["target"].value_counts()[1]
@@ -41,4 +47,4 @@ rus = RandomUnderSampler(
 )
 
 X_train_rus, y_train_rus = rus.fit_resample(X_train, y_train)
-
+"""
